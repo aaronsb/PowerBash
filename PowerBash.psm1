@@ -36,7 +36,8 @@ Set-Alias lxp ConvertTo-LinuxPath
 function Get-AllBashApps
 {
     $bashFSRoot = ((gci Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss).GetValue("BasePath") + "\rootfs")
-    $bashPATH = "/usr/local/sbin","/usr/local/bin","/usr/sbin","/usr/bin","/sbin","/bin","/usr/lib/gcc/x86_64-linux-gnu/4.8","/usr/games"
+    #this var for gcc should updated to use latest, or something smarter.
+    $bashPATH = "/usr/local/sbin","/usr/local/bin","/usr/sbin","/usr/bin","/sbin","/bin","/usr/lib/gcc/x86_64-linux-gnu/6","/usr/games"
     $allBashApps = @()
     foreach($path in $bashPATH)
     {
